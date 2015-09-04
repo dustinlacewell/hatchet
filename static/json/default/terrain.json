@@ -1,0 +1,6 @@
+{
+    "dirt": {
+        "tile": "dirt_ground",
+        "flags": ["terrain"]
+    }
+}

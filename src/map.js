@@ -1,18 +1,25 @@
-import Tile from './tile'
 import Generator from './mapgen'
 import Signal from './signal'
 
-var empty_tile = new Tile();
-
 class Map {
-    constructor(cell_size, generator=null) {
+    constructor(game, generator=null) {
+        this.game = game;
         this.cells = {}
-        this.cell_size = cell_size;
+        this.cell_size = {
+            width: game.settings.screen_size.width,
+            height: game.settings.screen_size.height,
+        };
         this.createSignals();
         if (generator != null) {
-            this.generator = new generator(this);
+            this.generator = new generator(
+                this.game.models,
+                this.game.entities,
+                this.cell_size);
         } else {
-            this.generator = new Generator(this);
+            this.generator = new Generator(
+                this.game.models,
+                this.game.entities,
+                this.cell_size);
         }
     }
 
@@ -25,7 +32,6 @@ class Map {
     pregen() {
         for (var x=-10; x<=10; x++) {
             for (var y=-10; y<=10; y++) {
-                console.log(`Pregenning tile at ${x}, ${y}`);
                 this.getCell(x, y, pregen=true);
             }
         }
@@ -63,18 +69,15 @@ class Map {
         return cell.getTile(x, y);
     }
 
-    setTile(x, y, tileno) {
+    setTile(x, y, tile) {
         // translate tile coords to cell coords
         let cx = Math.floor(x / this.cell_size.width);
         let cy = Math.floor(y / this.cell_size.height);
         // get corresponding cell
         let cell = this.getCell(cx, cy);
-        // set the tile in the cell
-        let new_tile = new new Tile(tileno);
-        this.onTileDirty(x, y, new_tile);
-        return cell.setTile(x, y, new Tile(tileno));
+        this.onTileDirty(x, y, tile);
+        return cell.setTile(x, y, tile);
     }
-
 }
 
 export default Map

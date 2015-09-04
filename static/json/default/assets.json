@@ -1,0 +1,14 @@
+{
+    "models": [
+        {
+            "type": "json",
+            "key": "terrain",
+            "url": "json/default/terrain.json"
+        },
+        {
+            "type": "json",
+            "key": "plants",
+            "url": "json/default/plants.json"
+        }
+    ]
+}

@@ -10,7 +10,7 @@ var exorcist = require('exorcist');
 var babelify = require('babelify');
 var browserify = require('browserify');
 var browserSync = require('browser-sync');
-
+var polyfill = require("babelify/polyfill");
 /**
  * Using different folders/file names? Change these constants:
  */
@@ -106,7 +106,7 @@ function build() {
         entries: ENTRY_FILE,
         debug: true
     })
-    .transform(babelify)
+    .transform(babelify, { optional: ["runtime"]})
     .bundle().on('error', function(error){
           gutil.log(gutil.colors.red('[Build Error]', error.message));
           this.emit('end');

@@ -1,0 +1,26 @@
+{
+    "grass": {
+        "tile": "grass",
+        "flags": ["plant"],
+        "components": { }
+    },
+
+    "tree": {
+        "tile": "tree_summer",
+        "flags": ["opaque", "obstacle", "plant", "tree"],
+        "components": { }
+    },
+
+    "pine": {
+        "tile": "pine",
+        "flags": ["opaque", "obstacle", "plant", "tree"],
+        "components": { }
+    },
+
+    "flower": {
+        "tile": "flower",
+        "flags": ["plant"],
+        "components": { }
+    }
+
+}

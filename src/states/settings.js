@@ -1,21 +1,21 @@
 class Settings extends Phaser.State {
     preload() {
+        // load the core settings file
         this.game.load.json('settings', 'json/settings.json');
+        // add a handler to respond to when core settings are loaded
+        this.game.load.onFileComplete.add((progress, key) => {
+            if (key == 'settings') {
+                // set the core settings onto the game
+                this.game.settings = this.game.cache.getJSON('settings');
+            }
+        });
     }
 
     create() {
-        this.game.settings = this.game.cache.getJSON('settings');
-        this.game.settings['screen_size'] = {
-            width: this.game.width / this.game.settings.tile_size.width,
-            height: this.game.height / this.game.settings.tile_size.height,
-        };
-        this.game.settings['pixel_size'] = {
-            width: this.game.width,
-            height: this.game.height,
-        };
-        this.game.state.start('Preload');
-
+        // load the tileset
+        this.game.state.start('tileset');
     }
+
 }
 
 export default Settings

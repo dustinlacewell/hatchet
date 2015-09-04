@@ -1,0 +1,36 @@
+{
+    "width": 20,
+    "height": 20,
+    "tiles": {
+        "terrain": [
+            "dirt_ground",
+            "snow_ground",
+            "grass",
+            "grass_dry",
+            "grass_short",
+            "grass_short_dry",
+            "grass_tall",
+            "grass_tall_dry",
+            "tree_young_spring",
+            "tree_young_summer",
+            "tree_young_fall",
+            "tree_young_winter",
+            "tree_spring",
+            "tree_summer",
+            "tree_fall",
+            "tree_winter",
+            "tree_adult_spring",
+            "tree_adult_summer",
+            "tree_adult_fall",
+            "tree_adult_winter",
+            "pine",
+            "pine_winter",
+            "road",
+            "road_center",
+            "flower",
+            "berry_red",
+            "berry_blue",
+            "berry_teal"
+        ]
+    }
+}

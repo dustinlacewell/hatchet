@@ -1,7 +1,4 @@
 {
-    "tileset": "img/terrain.png",
-    "tile_size": {
-        "width": 20,
-        "height": 20
-    }
+    "tileset": "retrodays",
+    "assetpack": "default"
 }
